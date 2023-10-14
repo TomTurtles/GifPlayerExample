@@ -1,12 +1,10 @@
-import { Component, EffectRef, ElementRef, Input, Signal, ViewChild, WritableSignal, computed, effect, signal } from '@angular/core';
-import { GifPlayerStatus, GifPlayerState } from '../gif-player/gif-player.component1';
-
+import { AfterViewInit, Component, EffectRef, ElementRef, Input, Signal, ViewChild, WritableSignal, computed, effect, signal } from '@angular/core';
 @Component({
   selector: 'app-gif-player2',
   templateUrl: './gif-player2.component.html',
   styleUrls: ['./gif-player2.component.scss']
 })
-export class GifPlayer2Component {
+export class GifPlayer2Component implements AfterViewInit {
   @Input({ required: true }) src!: string;
   @Input({ required: true }) thumbnail!: string;
   @ViewChild('gifPlayer') videoRef?: ElementRef<HTMLVideoElement>
