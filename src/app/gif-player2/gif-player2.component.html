@@ -1,0 +1,19 @@
+<div>
+    <video #gifPlayer 
+        height="50vh"
+        (loadstart)="loadStarted.set(true)"
+        (loadeddata)="loadedData.set(true)">
+
+        <source [src]="src"  type="video/mp4"/>
+        Your browser does not support the video tag.
+    
+    </video>
+
+    <button 
+        [disabled]="!loadedData()" 
+        (click)="togglePlay.set(!togglePlay())">
+        <span *ngIf="loadStarted() && !loadedData()">Loading</span>
+        <span *ngIf="loadedData() && !togglePlay()">Play</span>
+        <span *ngIf="loadedData() && togglePlay()">Pause</span>
+    </button>
+</div>
